@@ -1,7 +1,7 @@
 {
   "name": "packed-array",
-  "version": "0.0.0",
-  "description": "An utility to create fast, non-holey, arrays.",
+  "version": "1.0.0",
+  "description": "An utility to create fast, non-holey, arrays",
   "main": "cjs/index.js",
   "scripts": {
     "build": "npm run cjs && npm run rollup:new && npm run rollup:babel && npm run min && npm run fix && npm run test",
@@ -13,7 +13,12 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "test": "nyc node test/index.js"
   },
-  "keywords": ["v8", "packed", "array", "fast"],
+  "keywords": [
+    "v8",
+    "packed",
+    "array",
+    "fast"
+  ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
