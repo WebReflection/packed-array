@@ -1,6 +1,10 @@
-const identity = $ => $;
-export default (length, fn, self) => Array.from(
-  typeof length === 'number' ? {length} : length,
-  typeof fn === 'function' ? fn : () => fn,
-  self
-).map(identity);
+export default (sizer, fn, self) => {
+  const out = [];
+  for (let
+    isFunction = typeof fn === 'function',
+    length = typeof sizer === 'number' ? sizer : sizer.length,
+    i = 0; i < length; i++
+  )
+    out.push(isFunction ? fn.call(self, sizer[i], i) : fn);
+  return out;
+};

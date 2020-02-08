@@ -1,16 +1,14 @@
 var packedArray = (function (exports) {
   'use strict';
 
-  var identity = function identity($) {
-    return $;
-  };
+  var index = (function (sizer, fn, self) {
+    var out = [];
 
-  var index = (function (length, fn, self) {
-    return Array.from(typeof length === 'number' ? {
-      length: length
-    } : length, typeof fn === 'function' ? fn : function () {
-      return fn;
-    }, self).map(identity);
+    for (var isFunction = typeof fn === 'function', length = typeof sizer === 'number' ? sizer : sizer.length, i = 0; i < length; i++) {
+      out.push(isFunction ? fn.call(self, sizer[i], i) : fn);
+    }
+
+    return out;
   });
 
   exports.default = index;
