@@ -35,6 +35,6 @@ Simplify the creation of arrays extremely fast to be looped or consumed within t
 If you're after just arrays with a length and some initial value, the following would likely perform better, producing the same result:
 
 ```js
-// note the .map(identity) is mandatory to have a packed kind
-const array = Array(length).fill(value).map($ => $);
+// note the Array(length) is mandatory to obtain a packed kind
+const array = Array.from(Array(length), () => value);
 ```
