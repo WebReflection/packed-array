@@ -1,1 +1,1 @@
-var packedArray=function(r){"use strict";return r.default=function(r,t,n){for(var e=[],u="function"==typeof t,f="number"==typeof r?r:r.length,a=0;a<f;a++)e.push(u?t.call(n,r[a],a):t);return e},r}({}).default;
+var packedArray=function(r){"use strict";return r.default=function(r,n,t){return Array.from("number"==typeof r?Array(r):r,"function"==typeof n?n:function(){return n})},r}({}).default;

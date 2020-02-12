@@ -1,1 +1,1 @@
-var packedArray=function(t){"use strict";return t.default=(t,e,r)=>{const n=[];for(let u="function"==typeof e,c="number"==typeof t?t:t.length,f=0;f<c;f++)n.push(u?e.call(r,t[f],f):e);return n},t}({}).default;
+var packedArray=function(r){"use strict";return r.default=(r,t,e)=>Array.from("number"==typeof r?Array(r):r,"function"==typeof t?t:()=>t),r}({}).default;

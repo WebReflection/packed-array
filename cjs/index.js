@@ -7,13 +7,7 @@
  * @param {any=undefined} self - The context to use via the `filler`, if it's a Function
  * @return {Array<filler>} The Array of length `sizer` filled via the `filler`
  */
-module.exports = (sizer, filler, self) => {
-  const out = [];
-  for (let
-    isFunction = typeof filler === 'function',
-    length = typeof sizer === 'number' ? sizer : sizer.length,
-    i = 0; i < length; i++
-  )
-    out.push(isFunction ? filler.call(self, sizer[i], i) : filler);
-  return out;
-};
+module.exports = (sizer, filler, self) => Array.from(
+  typeof sizer === 'number' ? Array(sizer) : sizer,
+  typeof filler === 'function' ? filler : () => filler
+);

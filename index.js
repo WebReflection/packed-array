@@ -10,13 +10,9 @@ var packedArray = (function (exports) {
    * @return {Array<filler>} The Array of length `sizer` filled via the `filler`
    */
   var index = (function (sizer, filler, self) {
-    var out = [];
-
-    for (var isFunction = typeof filler === 'function', length = typeof sizer === 'number' ? sizer : sizer.length, i = 0; i < length; i++) {
-      out.push(isFunction ? filler.call(self, sizer[i], i) : filler);
-    }
-
-    return out;
+    return Array.from(typeof sizer === 'number' ? Array(sizer) : sizer, typeof filler === 'function' ? filler : function () {
+      return filler;
+    });
   });
 
   exports.default = index;
