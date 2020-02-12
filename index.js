@@ -12,7 +12,7 @@ var packedArray = (function (exports) {
   var index = (function (sizer, filler, self) {
     return Array.from(typeof sizer === 'number' ? Array(sizer) : sizer, typeof filler === 'function' ? filler : function () {
       return filler;
-    });
+    }, self);
   });
 
   exports.default = index;

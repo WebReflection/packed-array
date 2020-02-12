@@ -8,5 +8,6 @@
  */
 export default (sizer, filler, self) => Array.from(
   typeof sizer === 'number' ? Array(sizer) : sizer,
-  typeof filler === 'function' ? filler : () => filler
+  typeof filler === 'function' ? filler : () => filler,
+  self
 );
